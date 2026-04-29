@@ -148,6 +148,22 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				$(function() {
+					$('#footer').on('click', '.closer', function() {
+						return confirm('Are you sure you want to close this?');
+					});
+					$('#footer :input').on('keydown keyup keypress', function(e) {
+						e.stopPropagation(); 
+					});
+					$(window).on('keydown', function(e) {
+						if (e.key === 'Escape') {
+							$('#footer .closer').click();
+						}
+					});
+				});
+			</script>
+			
 
 	</body>
 </html>
